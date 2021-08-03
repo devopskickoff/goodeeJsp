@@ -1,7 +1,7 @@
 package book;
 
-// dto : Data Transfer Object(µ¥ÀÌÅÍ Àü´Ş °´Ã¼)
-// vo, to ¶ó°íµµ ÇÔ
+// dto : Data Transfer Object(ë°ì´í„° ì „ë‹¬ ê°ì²´)
+// vo, to ë¼ê³ ë„ í•¨
 public class BookDTO {
 	private int id;
 	private String title;
@@ -9,11 +9,11 @@ public class BookDTO {
 	int price;
 	private int qty;
 
-// ±âº»»ı¼ºÀÚ
+// ê¸°ë³¸ìƒì„±ì
 	public BookDTO() {
 	}
 
-// ¸Å°³º¯¼ö°¡ ÀÖ´Â »ı¼ºÀÚ
+// ë§¤ê°œë³€ìˆ˜ê°€ ìˆëŠ” ìƒì„±ì
 	public BookDTO(String title, String author, int price, int qty) {
 		this.title = title;
 		this.author = author;

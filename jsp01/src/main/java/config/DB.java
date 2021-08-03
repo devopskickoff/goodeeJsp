@@ -7,18 +7,18 @@ import javax.sql.DataSource;
 
 public class DB {
 	public static Connection dbConn() {
-// context.xml¿¡ ¼³Á¤µÈ dbcp¿¡¼­ Ä¿³Ø¼ÇÀ» °¡Á®¿È
+// context.xmlì— ì„¤ì •ëœ dbcpì—ì„œ ì»¤ë„¥ì…˜ì„ ê°€ì ¸ì˜´
 		DataSource ds = null; // javax.sql
 		Connection conn = null;
 		try {
-// context.xmlÀ» ºĞ¼®ÇÏ´Â °´Ã¼
+// context.xmlì„ ë¶„ì„í•˜ëŠ” ê°ì²´
 			Context ctx = new InitialContext();// javax.naming
-// context.xmlÀÇ Resource ÅÂ±× °Ë»ö
+// context.xmlì˜ Resource íƒœê·¸ ê²€ìƒ‰
 			ds = (DataSource) ctx.lookup("java:comp/env/oraDB");
-			conn = ds.getConnection(); // Ä¿³Ø¼ÇÀ» ÇÒ´ç¹ŞÀ½
+			conn = ds.getConnection(); // ì»¤ë„¥ì…˜ì„ í• ë‹¹ë°›ìŒ
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return conn; // Ä¿³Ø¼Ç ¸®ÅÏ
+		return conn; // ì»¤ë„¥ì…˜ ë¦¬í„´
 	}
 }

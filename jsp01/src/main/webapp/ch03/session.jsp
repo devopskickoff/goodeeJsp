@@ -7,17 +7,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<%
-	int result = (Integer)request.getAttribute("result");
-	%>
-	<ul>
-	<%
-	for(int i=1; i<= result; i++){
-	%>
-		<li> <%=result%> 곱하기 <%= i%>는 <%= result * i%></li>
-	<%	
-	}
-	%>
-	</ul>
+
+<% 
+session.setAttribute("name", "김철수"); //세션 영역에 변수 저장, 모든 페이지에서 사용 가능
+session.setAttribute("age", 20);
+%>
+<jsp:forward page="session_result.jsp"/>
+
 </body>
 </html>

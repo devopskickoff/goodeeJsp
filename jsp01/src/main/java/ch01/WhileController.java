@@ -14,14 +14,14 @@ public class WhileController extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		int number = Integer.parseInt(request.getParameter("number")); // ÆûÀÇ ÀÔ·Â°ªÀ» ¼ıÀÚ·Î º¯È¯
+		int number = Integer.parseInt(request.getParameter("number")); // í¼ì˜ ì…ë ¥ê°’ì„ ìˆ«ìë¡œ ë³€í™˜
 		int num = Integer.parseInt(request.getParameter("num"));
 		int result = 1;
 		for (int i = 1; i <= num; i++) {
 			result *= number;
 		}
-		System.out.println("°á°ú:" + result);
-// ÀúÀå
+		System.out.println("ê²°ê³¼:" + result);
+// ì €ì¥
 		request.setAttribute("result", result);
 		RequestDispatcher rd = request.getRequestDispatcher("/ch01/while_result.jsp");
 		System.out.println(response);

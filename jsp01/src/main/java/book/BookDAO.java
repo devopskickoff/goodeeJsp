@@ -11,10 +11,10 @@ import javax.sql.DataSource;
 import config.DB;
 
 public class BookDAO {
-// single ton(½Ì±ÛÅæ)
+// single ton(ì‹±ê¸€í†¤)
 	public static BookDAO dao;
 
-// private »ı¼ºÀÚ
+// private ìƒì„±ì
 	private BookDAO() {
 	}
 
@@ -27,31 +27,31 @@ public class BookDAO {
 
 	public ArrayList<BookDTO> bookList() {
 		ArrayList<BookDTO>list = new ArrayList<BookDTO>(); 
-		Connection conn = null; // DBÁ¢¼Ó °´Ã¼
-		PreparedStatement pstmt = null; // SQL½ÇÇà°´Ã¼
-		ResultSet rs = null; // °á°ú¼Â Ã³¸® °´Ã¼
+		Connection conn = null; // DBì ‘ì† ê°ì²´
+		PreparedStatement pstmt = null; // SQLì‹¤í–‰ê°ì²´
+		ResultSet rs = null; // ê²°ê³¼ì…‹ ì²˜ë¦¬ ê°ì²´
 		try {
 			conn = DB.dbConn();
 			String sql = "select * from book";
-			// SQL½ÇÇà°´Ã¼ »ı¼º
+			// SQLì‹¤í–‰ê°ì²´ ìƒì„±
 			pstmt = conn.prepareStatement(sql);
-			// SQL ½ÇÇà ÈÄ °á°ú¼ÂÀÌ rs¿¡ ¸®ÅÏµÊ
+			// SQL ì‹¤í–‰ í›„ ê²°ê³¼ì…‹ì´ rsì— ë¦¬í„´ë¨
 			rs = pstmt.executeQuery();
-			// °á°ú¼Â.next() ´ÙÀ½ ·¹ÄÚµå°¡ ÀÖÀ¸¸é true
+			// ê²°ê³¼ì…‹.next() ë‹¤ìŒ ë ˆì½”ë“œê°€ ìˆìœ¼ë©´ true
 			while (rs.next()) {
 				BookDTO dto = new BookDTO();
-				// °á°ú¼Â.getÀÚ·áÇü("ÄÃ·³")
+				// ê²°ê³¼ì…‹.getìë£Œí˜•("ì»¬ëŸ¼")
 				dto.setId(rs.getInt("id"));
 				dto.setTitle(rs.getString("title"));
 				dto.setAuthor(rs.getString("author"));
 				dto.setPrice(rs.getInt("price"));
 				dto.setQty(rs.getInt("qty"));
-				// ArrayList¿¡ Ãß°¡
+				// ArrayListì— ì¶”ê°€
 				list.add(dto);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-		} finally { // ¿ÀÇÂÇÑ ¿ª¼øÀ¸·Î ´İ±â
+		} finally { // ì˜¤í”ˆí•œ ì—­ìˆœìœ¼ë¡œ ë‹«ê¸°
 			// ResultSet => Statement => Connection
 			try {
 				if (rs != null)
