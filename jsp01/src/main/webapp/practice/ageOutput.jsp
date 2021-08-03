@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>   
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,9 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	이름:${map.name}
-	나이:${map.age}
-	성별:${map.gender}
-	취미:${map.hobby}
+<h4>${name}님의 나이는 만 ${year}세입니다</h4>
 </body>
 </html>
