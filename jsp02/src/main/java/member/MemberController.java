@@ -60,10 +60,21 @@ public class MemberController extends HttpServlet {
 			MemberDTO dto = new MemberDTO(userid, passwd, name, address, tel);
 			dao.update(dto);
 			response.sendRedirect(context + "/ch06/member.jsp");
-		}else if (url.indexOf("delete.do") != -1) {
+		} else if (url.indexOf("delete.do") != -1) {
 			String userid = request.getParameter("userid");
 			dao.delete(userid);
 			response.sendRedirect(context + "/ch06/member.jsp");
+		} else if (url.indexOf("login.do") != -1) {
+			String userid = request.getParameter("userid");
+			String passwd = request.getParameter("passwd");
+			MemberDTO dto = new MemberDTO();
+			dto.setUserid(userid);
+			dto.setPasswd(passwd);
+			String result = dao.loginCheck(dto);
+			request.setAttribute("result", result);
+			String page = "/ch06/login_result.jsp";
+			RequestDispatcher rd = request.getRequestDispatcher(page);
+			rd.forward(request, response);
 		}
 	}
 
