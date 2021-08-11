@@ -31,6 +31,7 @@ public class MemberDTO {
 		this.tel = tel;
 	}
 
+
 	@Override
 	public String toString() {
 		return "MemberDTO [userid=" + userid + ", passwd=" + passwd + ", name=" + name + ", reg_date=" + reg_date
